@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+{% include head.html %}
+
+<body class="color-bg-neutral-2">
+
+    {% include header.html %}
+
+    <div class="text-style-block">
+        <div class="layout">
+            <div class="layout-1">
+                <div class="p-x4 p-y7 color-bg-neutral-1">
+                    <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+                    <p class="text-body m-b4">{{ page.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ content }}
+
+</body>
+
+</html>
