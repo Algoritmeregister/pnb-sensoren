@@ -1011,6 +1011,37 @@ input[type=text] {
     font-family: monospace;
 }
 
+.table {
+    border-collapse: collapse;
+}
+
+.table.table-wide {
+    width: 100%;
+}
+
+.table-th {
+    text-align: left;
+    background: var(--color-neutral-0);
+    color: var(--color-neutral-1);
+    padding: var(--spacing-1) var(--spacing-2);
+}
+
+.table-tr:nth-child(odd) {
+    background: var(--color-neutral-2);
+}
+
+.table-td {
+    padding: var(--spacing-1) var(--spacing-2);
+}
+
+.table-td-link {
+    color: var(--color-brand-3);
+}
+
+.table-td-link:hover {
+    text-decoration: underline;
+}
+
 .text-h1 {
     font-family: var(--text-h1-font-family);
     font-weight: var(--text-h1-font-weight);
