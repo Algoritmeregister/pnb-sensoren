@@ -1,0 +1,42 @@
+---
+permalink: "/api/sensornetwerken.json"
+---
+{
+    "_links": {
+        "self": { "href": {{ page.permalink | absolute_url | jsonify }} }
+    },
+    "_embedded": {
+        "sensornetwerken": [
+            {
+                "_links": {
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                },
+                "id": 1,
+                "naam": "Tellussen Provinciale Wegen",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@pnb.nl",
+                    "telefoon": "06-12345678"
+                },
+                "status": "Actief"
+            },
+            {
+                "_links": {
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                },
+                "id": 1,
+                "naam": "Tellussen Provinciale Wegen",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@pnb.nl",
+                    "telefoon": "06-12345678"
+                },
+                "status": "Actief"
+            }
+        ]
+    }
+}

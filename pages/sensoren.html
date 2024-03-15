@@ -4,4 +4,51 @@ nav_position: 3
 title: Sensoren
 description: Overzicht van sensoren en sensornetwerken.
 permalink: /sensoren
+disable_default_content: true
 ---
+<div class="table-block p-b6">
+    <div class="layout">
+        <div class="layout-1">
+            <div class="p-4 p-y7 color-bg-neutral-1">
+                <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+                <p class="text-body m-b4">{{ page.description }}</p>
+                <table class="table table-wide" id="sensornetwerken"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var sensornetwerkenApiUrl = {{ "/api/sensornetwerken.json" | absolute_url | jsonify }};
+    fetch(sensornetwerkenApiUrl)
+        .then(response => response.json())
+        .then(data => { return data._embedded.sensornetwerken; })
+        .then(sensornetwerken => {
+            var html = `
+                <tr>
+                    <th class="table-th text-h4">Sensornetwerk</th>
+                    <th class="table-th text-h4">Contactpersoon</th>
+                    <th class="table-th text-h4">Email</th>
+                    <th class="table-th text-h4">Status</th>
+                </tr>
+            `;
+            htmls = sensornetwerken.map(sensornetwerk => {
+                return `
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            ${sensornetwerk.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            ${sensornetwerk.contact.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            <a href="mailto:${sensornetwerk.contact.email}" class="table-td-link">${sensornetwerk.contact.email}</a>
+                        </td>
+                        <td class="table-td text-body">
+                            ${sensornetwerk.status}
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("sensornetwerken").innerHTML = html + htmls.join('');
+        });
+</script>
