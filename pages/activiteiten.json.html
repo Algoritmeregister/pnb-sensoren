@@ -3,14 +3,14 @@ permalink: "/api/activiteiten.json"
 ---
 {
     "_links": {
-        "self": { "href": {{ "/api/activiteiten" | absolute_url | jsonify }} }
+        "self": { "href": {{ page.permalink | absolute_url | jsonify }} }
     },
     "_embedded": {
         "activiteiten": [
             {
                 "_links": {
-                    "self": { "href": {{ "/api/activiteiten/1" | absolute_url | jsonify }} },
-                    "collection": { "href": {{ "/api/activiteiten" | absolute_url | jsonify }} }
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
                 },
                 "id": 1,
                 "organisatie": "Provincie Noord-Brabant",
