@@ -1,0 +1,33 @@
+---
+permalink: "/api/activiteiten.json"
+---
+{
+    "_links": {
+        "self": { "href": {{ "/api/activiteiten" | absolute_url | jsonify }} }
+    },
+    "_embedded": {
+        "activiteiten": [
+            {
+                "_links": {
+                    "self": { "href": {{ "/api/activiteiten/1" | absolute_url | jsonify }} },
+                    "collection": { "href": {{ "/api/activiteiten" | absolute_url | jsonify }} }
+                },
+                "id": 1,
+                "organisatie": "Provincie Noord-Brabant",
+                "onderdeel": "Programma Ondermijning",
+                "type": "Project",
+                "naam": "Onderzoek Bedrijfsterreinen",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@pnb.nl",
+                    "telefoon": "06-12345678"
+                },
+                "wettelijke grondslag": "Wet Bibob",
+                "startdatum": "2020-01-01",
+                "einddatum": "2021-01-01",
+                "status": "In uitvoering"
+            }
+        ]
+    }
+}

@@ -5,3 +5,39 @@ title: Activiteiten
 description: Overzicht van organisatorische activiteiten (projecten en processen) waarin technologie wordt ingezet.
 permalink: /inzet
 ---
+<div class="text-style-block">
+    <div class="layout">
+        <div class="layout-1">
+            <div class="p-x4 p-y7 color-bg-neutral-1">
+                <table id="activiteiten" style="width: 100%; text-align: left"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
+    fetch(activiteitenApiUrl)
+        .then(response => response.json())
+        .then(data => { return data._embedded.activiteiten; })
+        .then(activiteiten => {
+            var html = `
+                <tr>
+                    <th>Type</th>
+                    <th>Onderdeel</th>
+                    <th>Naam</th>
+                    <th>Status</th>
+                </tr>
+            `;
+            htmls = activiteiten.map(activiteit => {
+                return `
+                    <tr>
+                        <td>${activiteit.type}</td>
+                        <td>${activiteit.onderdeel}</td>
+                        <td>${activiteit.naam}</td>
+                        <td>${activiteit.status}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById("activiteiten").innerHTML = html + htmls.join('');
+        });
+</script>
