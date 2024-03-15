@@ -7,6 +7,7 @@
 
     {% include header.html %}
 
+    {% if page.disable_default_content != true %}
     <div class="text-style-block">
         <div class="layout">
             <div class="layout-1">
@@ -17,6 +18,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
     {{ content }}
 

@@ -4,12 +4,15 @@ nav_position: 2
 title: Activiteiten
 description: Overzicht van organisatorische activiteiten (projecten en processen) waarin technologie wordt ingezet.
 permalink: /activiteiten
+disable_default_content: true
 ---
-<div class="text-style-block">
+<div class="table-block p-b6">
     <div class="layout">
         <div class="layout-1">
-            <div class="p-x4 p-y7 color-bg-neutral-1">
-                <table id="activiteiten" style="width: 100%; text-align: left"></table>
+            <div class="p-4 p-y7 color-bg-neutral-1">
+                <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+                <p class="text-body m-b4">{{ page.description }}</p>
+                <table class="table table-wide" id="activiteiten"></table>
             </div>
         </div>
     </div>
@@ -22,21 +25,31 @@ permalink: /activiteiten
         .then(activiteiten => {
             var html = `
                 <tr>
-                    <th>Activiteit</th>
-                    <th>Programma</th>
-                    <th>Contactpersoon</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                    <th class="table-th text-h4">Activiteit</th>
+                    <th class="table-th text-h4">Programma</th>
+                    <th class="table-th text-h4">Contactpersoon</th>
+                    <th class="table-th text-h4">Email</th>
+                    <th class="table-th text-h4">Status</th>
                 </tr>
             `;
             htmls = activiteiten.map(activiteit => {
                 return `
-                    <tr>
-                        <td>${activiteit.naam}</td>
-                        <td>${activiteit.onderdeel}</td>
-                        <td>${activiteit.contact.naam}</td>
-                        <td>${activiteit.contact.email}</td>
-                        <td>${activiteit.status}</td>
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            ${activiteit.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            ${activiteit.onderdeel}
+                        </td>
+                        <td class="table-td text-body">
+                            ${activiteit.contact.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            <a href="mailto:${activiteit.contact.email}" class="table-td-link">${activiteit.contact.email}</a>
+                        </td>
+                        <td class="table-td text-body">
+                            ${activiteit.status}
+                        </td>
                     </tr>
                 `;
             });
