@@ -36,7 +36,7 @@ disable_default_content: true
                 return `
                     <tr class="table-tr">
                         <td class="table-td text-body">
-                            ${activiteit.naam}
+                            <a href="{{ "/activiteit" | relative_url }}?id=${activiteit.id}">${activiteit.naam}</a>
                         </td>
                         <td class="table-td text-body">
                             ${activiteit.onderdeel}
