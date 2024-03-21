@@ -1,0 +1,57 @@
+---
+permalink: "/api/algoritmes.json"
+---
+{
+    "_links": {
+        "self": { "href": {{ page.permalink | absolute_url | jsonify }} }
+    },
+    "_embedded": {
+        "algoritmes": [
+            {
+                "_links": {
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                },
+                "id": 1,
+                "naam": "Job Matcher Pro",
+                "leverancier": "Leverancier BV",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@leverancier.nl",
+                    "telefoon": "06-12345678"
+                }
+            },
+            {
+                "_links": {
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                },
+                "id": 2,
+                "naam": "Slimme Meter Op Straat",
+                "leverancier": "Leverancier BV",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@leverancier.nl",
+                    "telefoon": "06-12345678"
+                }
+            },
+            {
+                "_links": {
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                },
+                "id": 3,
+                "naam": "Optimale Route",
+                "leverancier": "Leverancier BV",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@leverancier.nl",
+                    "telefoon": "06-12345678"
+                }
+            }
+        ]
+    }
+}

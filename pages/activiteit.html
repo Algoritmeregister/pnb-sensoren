@@ -3,13 +3,12 @@ layout: default
 title: Activiteit
 description: Details van de organisatorische activiteit (projecten of processen) waarin technologie wordt ingezet.
 permalink: /activiteit
-disable_default_content: true
 ---
 <div class="table-block p-b6">
     <div class="layout">
         <div class="layout-1">
             <div class="p-4 p-y7 color-bg-neutral-1">
-                <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+                <h2 class="text-h2 m-b2">{{ page.title }} <span id="title"></span></h2>
                 <p class="text-body m-b4">{{ page.description }}</p>
             </div>
         </div>
@@ -23,6 +22,6 @@ disable_default_content: true
         .then(data => { return data._embedded.activiteiten; })
         .then(activiteiten => {
             var activiteit = activiteiten.find(activiteit => activiteit.id == id);
-            console.log(activiteit);
+            document.getElementById("title").innerHTML = activiteit.naam;
         });
 </script>

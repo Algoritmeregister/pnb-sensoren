@@ -5,3 +5,49 @@ title: Algoritmes
 description: Overzicht van algoritmische toepassingen.
 permalink: /algoritmes
 ---
+<div class="table-block p-b6">
+    <div class="layout">
+        <div class="layout-1">
+            <div class="p-4 p-y7 color-bg-neutral-1">
+                <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+                <p class="text-body m-b4">{{ page.description }}</p>
+                <table class="table table-wide" id="algoritmes"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var algoritmesApiUrl = {{ "/api/algoritmes.json" | absolute_url | jsonify }};
+    fetch(algoritmesApiUrl)
+        .then(response => response.json())
+        .then(data => { return data._embedded.algoritmes; })
+        .then(algoritmes => {
+            var html = `
+                <tr>
+                    <th class="table-th text-h4">Algoritmische Toepassing</th>
+                    <th class="table-th text-h4">Leverancier</th>
+                    <th class="table-th text-h4">Contactpersoon</th>
+                    <th class="table-th text-h4">Email</th>
+                </tr>
+            `;
+            htmls = algoritmes.map(algoritme => {
+                return `
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            <a href="{{ "/algoritme" | relative_url }}?id=${algoritme.id}">${algoritme.naam}</a>
+                        </td>
+                        <td class="table-td text-body">
+                            ${algoritme.leverancier}
+                        </td>
+                        <td class="table-td text-body">
+                            ${algoritme.contact.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            <a href="mailto:${algoritme.contact.email}" class="table-td-link">${algoritme.contact.email}</a>
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("algoritmes").innerHTML = html + htmls.join('');
+        });
+</script>

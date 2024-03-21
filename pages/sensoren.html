@@ -4,13 +4,12 @@ nav_position: 3
 title: Sensoren
 description: Overzicht van sensoren en sensornetwerken.
 permalink: /sensoren
-disable_default_content: true
 ---
 <div class="table-block p-b6">
     <div class="layout">
         <div class="layout-1">
             <div class="p-4 p-y7 color-bg-neutral-1">
-                <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+                <h2 class="text-h2 m-b2">Sensornetwerken</h2>
                 <p class="text-body m-b4">{{ page.description }}</p>
                 <table class="table table-wide" id="sensornetwerken"></table>
             </div>
@@ -35,7 +34,7 @@ disable_default_content: true
                 return `
                     <tr class="table-tr">
                         <td class="table-td text-body">
-                            ${sensornetwerk.naam}
+                            <a href="/sensornetwerk?id=${sensornetwerk.id}">${sensornetwerk.naam}</a>
                         </td>
                         <td class="table-td text-body">
                             ${sensornetwerk.contact.naam}

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Sensornetwerk
+description: Details van het sensornetwerk.
+permalink: /sensornetwerk
+---
+<div class="table-block p-b6">
+    <div class="layout">
+        <div class="layout-1">
+            <div class="p-4 p-y7 color-bg-neutral-1">
+                <h2 class="text-h2 m-b2">{{ page.title }} <span id="title"></span></h2>
+                <p class="text-body m-b4">{{ page.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var sensornetwerkenApiUrl = {{ "/api/sensornetwerken.json" | absolute_url | jsonify }};
+    var id = new URLSearchParams(window.location.search).get('id');
+    fetch(sensornetwerkenApiUrl)
+        .then(response => response.json())
+        .then(data => { return data._embedded.sensornetwerken; })
+        .then(sensornetwerken => {
+            var sensornetwerk = sensornetwerken.find(sensornetwerk => sensornetwerk.id == id);
+            document.getElementById("title").innerHTML = sensornetwerk.naam;
+        });
+</script>
