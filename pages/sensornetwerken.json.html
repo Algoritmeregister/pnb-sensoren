@@ -20,14 +20,33 @@ permalink: "/api/sensornetwerken.json"
                     "email": "jgroenen@pnb.nl",
                     "telefoon": "06-12345678"
                 },
-                "status": "Actief"
+                "status": "Actief",
+                "_embedded": {
+                    "sensoren": [
+                        {
+                            "_links": {
+                                "self": { "href": "https://example.org/example.json" },
+                                "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                            },
+                            "id": 1,
+                            "naam": "Tellus 1",
+                            "beschrijving": "Tellus in de Provinciale Weg",
+                            "contact": {
+                                "naam": "J. Groenen",
+                                "email": "jgroenen@pnb.nl",
+                                "telefoon": "06-12345678"
+                            },
+                            "status": "Actief"
+                        }
+                    ]
+                }
             },
             {
                 "_links": {
                     "self": { "href": "https://example.org/example.json" },
                     "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
                 },
-                "id": 1,
+                "id": 2,
                 "naam": "Tellussen Provinciale Wegen",
                 "beschrijving": "",
                 "contact": {

@@ -10,7 +10,7 @@
             <div class="header-nav color-bg-brand-1">
                 {% assign pages = site.pages | where_exp: "item", "item.nav_position != nil" | sort: "nav_position" %}
                 {% for navPage in pages %}
-                    <a href="{{ navPage.url | relative_url }}" class="header-nav-item {% if navPage.url == page.url %}header-nav-item-active{% endif %} p-x4 color-neutral-1">{{ navPage.title }}</a>
+                    <a href="{{ navPage.url | relative_url }}" class="header-nav-item {% if navPage.url == page.url or navPage.url == page.navGroup %}header-nav-item-active{% endif %} p-x4 color-neutral-1">{{ navPage.title }}</a>
                 {% endfor %}
             </div>
         </div>

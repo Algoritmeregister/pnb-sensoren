@@ -3,6 +3,7 @@ layout: default
 title: Sensornetwerk
 description: Details van het sensornetwerk.
 permalink: /sensornetwerk
+navGroup: /sensoren
 ---
 <div class="table-block p-b6">
     <div class="layout">
@@ -10,6 +11,7 @@ permalink: /sensornetwerk
             <div class="p-4 p-y7 color-bg-neutral-1">
                 <h2 class="text-h2 m-b2">{{ page.title }} <span id="title"></span></h2>
                 <p class="text-body m-b4">{{ page.description }}</p>
+                <table class="table table-wide" id="sensoren"></table>
             </div>
         </div>
     </div>
@@ -23,5 +25,33 @@ permalink: /sensornetwerk
         .then(sensornetwerken => {
             var sensornetwerk = sensornetwerken.find(sensornetwerk => sensornetwerk.id == id);
             document.getElementById("title").innerHTML = sensornetwerk.naam;
+            var html = `
+                <tr>
+                    <th class="table-th text-h4">Sensor</th>
+                    <th class="table-th text-h4">Contactpersoon</th>
+                    <th class="table-th text-h4">Email</th>
+                    <th class="table-th text-h4">Status</th>
+                </tr>
+            `;
+            htmls = sensornetwerk._embedded.sensoren.map(sensor => {
+                return `
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            ${sensor.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            ${sensor.contact.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            <a href="mailto:${sensor.contact.email}" class="table-td-link">${sensor.contact.email}</a>
+                        </td>
+                        <td class="table-td text-body">
+                            ${sensor.status}
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("sensoren").innerHTML = html + htmls.join('');
+
         });
 </script>
