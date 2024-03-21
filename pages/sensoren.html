@@ -34,7 +34,7 @@ permalink: /sensoren
                 return `
                     <tr class="table-tr">
                         <td class="table-td text-body">
-                            <a href="/sensornetwerk?id=${sensornetwerk.id}">${sensornetwerk.naam}</a>
+                            <a href="{{ "/sensornetwerk" | relative_url }}?id=${sensornetwerk.id}">${sensornetwerk.naam}</a>
                         </td>
                         <td class="table-td text-body">
                             ${sensornetwerk.contact.naam}
