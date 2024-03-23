@@ -15,6 +15,7 @@ navGroup: /activiteiten
         </div>
     </div>
 </div>
+{% include form.html schemaUrl="/schema/activiteit.schema.json" %}
 <script>
     var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
     var id = new URLSearchParams(window.location.search).get('id');
