@@ -5,17 +5,114 @@ description: Details van de organisatorische activiteit (projecten of processen)
 permalink: /activiteit
 navGroup: /activiteiten
 ---
-<div class="table-block p-b6">
-    <div class="layout">
-        <div class="layout-1">
-            <div class="p-4 p-y7 color-bg-neutral-1">
-                <h2 class="text-h2 m-b2">{{ page.title }} <span id="title"></span></h2>
-                <p class="text-body m-b4">{{ page.description }}</p>
+<div class="layout">
+    <div class="layout-1">
+        <div class="p-4 color-bg-neutral-1">
+            <div class="crumble-block p-y4">
+                <div class="u-flex u-align-center">
+                    <a href="{{ "/activiteiten" | relative_url }}" class="text-body color-brand-3">Activiteiten</a>
+                    <span class="text-body color-brand-3 m-x1">&gt;</span>
+                    <a href="#" class="text-body color-brand-3"><span data-attribute="onderdeel"></span></a>
+                </div>
+                <h1 class="text-h1 m-y3"><span data-attribute="title"></span></h1>
+            </div>
+            <div class="prop-block p-b6">
+                <div class="w-75">
+                    <div class="prop p-5 color-bg-neutral-2">
+                        <div class="u-flex u-space-between">
+                            <div class="u-flex u-direction-column">
+                                <div class="u-flex m-b3">
+                                    <div class="u-flex-1 text-h4">Programma</div>
+                                    <div class="u-flex-1 text-body"><span data-attribute="onderdeel"></span></div>
+                                </div>
+                                <div class="u-flex m-b3">
+                                    <div class="u-flex-1 text-h4">Contact</div>
+                                    <div class="u-flex-1 text-body">Johan G.</div>
+                                </div>
+                                <div class="u-flex m-b3">
+                                    <div class="u-flex-1 text-h4">Email</div>
+                                    <div class="u-flex-1 text-body">johan@brabant.nl</div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <a href="#" class="btn text-body">Bewerken</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-block p-b6">
+                <h2 class="text-h2 m-b2">Algoritmes</h2>
+                <p class="text-body m-b4">In dit project worden onderstaande algoritmes ingezet</p>
+                <table class="table table-wide">
+                    <tr>
+                        <th class="table-th text-h4">Naam</th>
+                        <th class="table-th text-h4">Type</th>
+                        <th class="table-th text-h4">Status</th>
+                        <th class="table-th text-h4">Publicatie</th>
+                    </tr>
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            Terugkerende bewegingen herkennen
+                        </td>
+                        <td class="table-td text-body">
+                            Voorspellend, Diagnostisch
+                        </td>
+                        <td class="table-td text-body">
+                            In gebruik
+                        </td>
+                        <td class="table-td text-body">
+                            Gepubliceerd
+                        </td>
+                    </tr>
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            Nummerborden herkennen
+                        </td>
+                        <td class="table-td text-body">
+                            Voorspellend, Diagnostisch
+                        </td>
+                        <td class="table-td text-body">
+                            In gebruik
+                        </td>
+                        <td class="table-td text-body">
+                            Gepubliceerd
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-block p-b6">
+                <h2 class="text-h2 m-b2">Sensoren</h2>
+                <p class="text-body m-b4">In dit project worden onderstaande sensoren ingezet</p>
+                <table class="table table-wide">
+                    <tr>
+                        <th class="table-th text-h4">Naam</th>
+                        <th class="table-th text-h4">Type</th>
+                        <th class="table-th text-h4">Status</th>
+                        <th class="table-th text-h4">Publicatie</th>
+                    </tr>
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            Cameranetwerk Den Dundert
+                        </td>
+                        <td class="table-td text-body">
+                            Camera
+                        </td>
+                        <td class="table-td text-body">
+                            In gebruik
+                        </td>
+                        <td class="table-td text-body">
+                            Gepubliceerd
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 </div>
+{% comment %}
 {% include form.html schemaUrl="/schema/activiteit.schema.json" %}
+{% endcomment %}
 <script>
     var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
     var id = new URLSearchParams(window.location.search).get('id');
@@ -24,6 +121,8 @@ navGroup: /activiteiten
         .then(data => { return data._embedded.activiteiten; })
         .then(activiteiten => {
             var activiteit = activiteiten.find(activiteit => activiteit.id == id);
-            document.getElementById("title").innerHTML = activiteit.naam;
+            document.querySelectorAll("[data-attribute='title']").forEach(attr => attr.innerHTML = activiteit.naam);
+            document.querySelectorAll("[data-attribute='onderdeel']").forEach(attr => attr.innerHTML = activiteit.onderdeel);
+            document.querySelectorAll("[data-attribute='contact']").forEach(attr => attr.innerHTML = activiteit.contact.naam);
         });
 </script>

@@ -57,9 +57,8 @@ input[type=text] {
 
 .btn {
     padding: var(--spacing-2) var(--spacing-4);
-    background-color: var(--color-brand-1);
+    background-color: var(--color-neutral-0);
     color: var(--color-neutral-1);
-    border-radius: var(--border-radius);
 }
 
 .btn.btn-ghost {
@@ -67,7 +66,6 @@ input[type=text] {
     border: 1px solid var(--color-brand-1);
     background: none;
     color: var(--color-brand-1);
-    border-radius: var(--border-radius);
 }
 
 .btn.btn-small {
@@ -1033,7 +1031,7 @@ input[type=text] {
     padding: var(--spacing-1) var(--spacing-2);
 }
 
-.table-tr:nth-child(odd) {
+.table-tr:nth-child(even) {
     background: var(--color-neutral-2);
 }
 
@@ -1393,4 +1391,20 @@ input[type=text] {
 
 .u-text-blur {
     filter: blur(5px);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-auto {
+    width: auto;
 }
