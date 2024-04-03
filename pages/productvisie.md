@@ -27,7 +27,7 @@ permalink: /productvisie
                 <p class="text-body m-b4">Vastlegging van de inzet van sensoren op basis van standaarden</p>
                 <p class="text-body m-b4">Publicatie van sensoren naar het sensorenregister</p>
                 <p class="text-body m-b4">Overzicht van de algoritmes die binnen deze processen en projecten worden ingezet</p>
-                <p class="text-body m-b4">Vastlegging van de inzet van algoritmes op basis van standaarden</p>
+                <p class="text-body m-b4">Vastlegging van de inzet van algoritmes op basis van [standaarden](https://www.algoritmeregister.org/schemas/)</p>
                 <p class="text-body m-b4">Publicatie van algoritmes naar het algoritmeregister</p>
                 <h2 class="text-h2 m-b2">Principes</h2>
                 <p class="text-body m-b4">De beheertool is een centrale webapplicatie</p>
