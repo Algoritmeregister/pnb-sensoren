@@ -6,14 +6,14 @@ permalink: /config
 navGroup: /
 ---
 <div class="p-4 p-y7 color-bg-neutral-1">
-    <form class="form-block p-b7">
+    <form class="form-block p-b7" data-scope="configuratie">
         <h2 class="text-h2 m-b4">Configuratie</h2>
         <div class="form-item p-4 color-bg-neutral-2">
             <div class="m-b3">
                 <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">1
                 </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
             </div>
-            <textarea placeholder="Bijvoorbeeld een antwoord" class="text-body form-item-textarea p-3"></textarea>
+            <textarea name="voorbeeld" placeholder="Bijvoorbeeld een antwoord" class="text-body form-item-textarea p-3"></textarea>
         </div>
         <div class="form-item p-4 color-bg-neutral-2">
             <div class="m-b3">
@@ -83,24 +83,22 @@ navGroup: /
             <input type="date" class="text-body form-item-date p-x3 p-y1">
         </div>
         <div class="form-item p-4 color-bg-neutral-2">
-            <a href="#" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
+            <a href="#" data-action="store" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
             <a href="#" class="text-link u-display-inline-block">Annuleren</a>
         </div>
     </form>
 </div>
-{% comment %}
-{% include form.html schemaUrl="/schema/activiteit.schema.json" %}
-{% endcomment %}
 <script>
-    var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
-    var id = new URLSearchParams(window.location.search).get('id');
-    fetch(activiteitenApiUrl)
-        .then(response => response.json())
-        .then(data => { return data._embedded.activiteiten; })
-        .then(activiteiten => {
-            var activiteit = activiteiten.find(activiteit => activiteit.id == id);
-            document.querySelectorAll("[data-attribute='title']").forEach(attr => attr.innerHTML = activiteit.naam);
-            document.querySelectorAll("[data-attribute='onderdeel']").forEach(attr => attr.innerHTML = activiteit.onderdeel);
-            document.querySelectorAll("[data-attribute='contact']").forEach(attr => attr.innerHTML = activiteit.contact.naam);
-        });
+    var form = document.querySelector('[data-scope]');
+    var dataScope = form.getAttribute('data-scope'); // eg. 'configuratie'
+
+    var data = JSON.parse(localStorage.getItem(dataScope));
+    if (data) Object.keys(data).forEach(key => document.querySelector('[name="' + key + '"]').value = data[key]);
+    
+    document.querySelector('[data-action="store"]').addEventListener('click', function() {
+        var formData = new FormData(document.querySelector('[data-scope]'));
+        var data = {};
+        formData.forEach((value, key) => data[key] = value);
+        localStorage.setItem(dataScope, JSON.stringify(data));
+    });
 </script>
