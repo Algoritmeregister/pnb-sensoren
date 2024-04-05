@@ -69,8 +69,17 @@ input[type=text] {
 }
 
 .btn.btn-small {
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding: 4px var(--spacing-2);
+    background: none;
+    border: 2px solid var(--color-neutral-0);
+    color: var(--color-neutral-0);
+}
+
+.btn.btn-small:hover {
+    padding: 4px var(--spacing-2);
+    background: var(--color-neutral-0);
+    border: 2px solid var(--color-neutral-0);
+    color: var(--color-neutral-1);
 }
 
 .burger {
@@ -762,6 +771,120 @@ input[type=text] {
 .m-x-auto {
     margin-left: auto;
     margin-right: auto;
+}
+
+.markup-zone h1 {
+    font-family: var(--text-h1-font-family);
+    font-weight: var(--text-h1-font-weight);
+    font-size: var(--text-h1-sm-font-size);
+    line-height: var(--text-h1-sm-line-height);
+}
+
+@media screen and (min-width: 992px) {
+    .markup-zone h1 {
+        font-size: var(--text-h1-md-font-size);
+        line-height: var(--text-h1-md-line-height);
+    }
+}
+
+.markup-zone h2 {
+    font-family: var(--text-h2-font-family);
+    font-weight: var(--text-h2-font-weight);
+    font-size: var(--text-h2-sm-font-size);
+    line-height: var(--text-h2-sm-line-height);
+}
+
+@media screen and (min-width: 992px) {
+    .markup-zone h2 {
+        font-size: var(--text-h2-md-font-size);
+        line-height: var(--text-h2-md-line-height);
+    }
+}
+
+.markup-zone h3 {
+    font-family: var(--text-h3-font-family);
+    font-weight: var(--text-h3-font-weight);
+    font-size: var(--text-h3-sm-font-size);
+    line-height: var(--text-h3-sm-line-height);
+}
+
+@media screen and (min-width: 992px) {
+    .markup-zone h3 {
+        font-size: var(--text-h3-md-font-size);
+        line-height: var(--text-h3-md-line-height);
+    }
+}
+
+.markup-zone h4 {
+    font-family: var(--text-h4-font-family);
+    font-weight: var(--text-h4-font-weight);
+    font-size: var(--text-h4-sm-font-size);
+    line-height: var(--text-h4-sm-line-height);
+}
+
+@media screen and (min-width: 992px) {
+    .markup-zone h4 {
+        font-size: var(--text-h4-md-font-size);
+        line-height: var(--text-h4-md-line-height);
+    }
+}
+
+.markup-zone div,
+.markup-zone p,
+.markup-zone li {
+    font-family: var(--text-body-font-family);
+    font-weight: var(--text-body-font-weight);
+    font-size: var(--text-body-sm-font-size);
+    line-height: var(--text-body-sm-line-height);
+}
+
+@media screen and (min-width: 992px) {
+
+    .markup-zone div,
+    .markup-zone p,
+    .markup-zone li {
+        font-size: var(--text-body-md-font-size);
+        line-height: var(--text-body-md-line-height);
+    }
+}
+
+.markup-zone p a {
+    color: var(--color-brand-3);
+    text-decoration: underline;
+}
+
+.markup-zone ul li {
+    display: list-item;
+    padding-left: 8px;
+    list-style: square;
+}
+
+.markup-zone ol li {
+    display: list-item;
+    padding-left: 8px;
+    list-style: decimal;
+}
+
+.markup-zone ol,
+.markup-zone ul {
+    padding-left: 16px;
+    margin-top: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+}
+
+.markup-zone h1,
+.markup-zone h2,
+.markup-zone h3 {
+    margin-bottom: var(--spacing-2);
+}
+
+.markup-zone p {
+    margin-bottom: var(--spacing-3);
+}
+
+.markup-zone p+h3,
+.markup-zone p+h2 {
+    margin-top: var(--spacing-5);
 }
 
 .mobile-menu {
