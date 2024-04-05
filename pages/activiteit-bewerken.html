@@ -1,0 +1,110 @@
+---
+layout: default
+title: Activiteit bewerken
+description: 
+permalink: /activiteit-bewerken
+navGroup: /activiteiten
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ " /activiteiten" | relative_url }}" class="text-body color-brand-3">Activiteiten</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="#" class="text-body color-brand-3"><span data-attribute="onderdeel"></span></a>
+        </div>
+        <h1 class="text-h1 m-y3"><span data-attribute="title"></span></h1>
+    </div>
+    <form class="form-block p-b7">
+        <h2 class="text-h2 m-b4">Formulieren</h2>
+        <div class="form-item p-4 color-bg-neutral-2">
+            <div class="m-b3">
+                <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">1
+                </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
+            </div>
+            <textarea placeholder="Bijvoorbeeld een antwoord" class="text-body form-item-textarea p-3"></textarea>
+        </div>
+        <div class="form-item p-4 color-bg-neutral-2">
+            <div class="m-b3">
+                <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">2
+                </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
+            </div>
+            <div>
+                <label class="m-b2 u-display-block u-cursor-pointer">
+                    <input type="checkbox" class="u-display-inline-block m-r1">
+                    <span class="text-body" class="u-display-inline-block">Optie A</span>
+                </label>
+                <label class="m-b2 u-display-block u-cursor-pointer">
+                    <input type="checkbox" class="u-display-inline-block m-r1">
+                    <span class="text-body" class="u-display-inline-block">Optie B</span>
+                </label>
+                <label class="m-b2 u-display-block u-cursor-pointer">
+                    <input type="checkbox" class="u-display-inline-block m-r1">
+                    <span class="text-body" class="u-display-inline-block">Optie C</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-item p-4 color-bg-neutral-2">
+            <div class="m-b3">
+                <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">3
+                </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
+            </div>
+            <div>
+                <label class="m-b2 u-display-block u-cursor-pointer">
+                    <input type="radio" name="group" class="u-display-inline-block m-r1">
+                    <span class="text-body" class="u-display-inline-block">Optie A</span>
+                </label>
+                <label class="m-b2 u-display-block u-cursor-pointer">
+                    <input type="radio" name="group" class="u-display-inline-block m-r1">
+                    <span class="text-body" class="u-display-inline-block">Optie B</span>
+                </label>
+                <label class="m-b2 u-display-block u-cursor-pointer">
+                    <input type="radio" name="group" class="u-display-inline-block m-r1">
+                    <span class="text-body" class="u-display-inline-block">Optie C</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-item p-4 color-bg-neutral-2">
+            <div class="m-b3">
+                <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">4
+                </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
+            </div>
+            <div>
+                <select class="p-y1 p-x2 form-item-select">
+                    <option class="text-body">Optie A</option>
+                    <option class="text-body">Optie B</option>
+                    <option class="text-body">Optie C</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item p-4 color-bg-neutral-2">
+            <div class="m-b3">
+                <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">5
+                </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
+            </div>
+            <input type="text" class="text-body form-item-input p-x3 p-y1" placeholder="Bijvoorbeeld een antwoord">
+        </div>
+        <div class="form-item p-4 color-bg-neutral-2">
+            <div class="m-b3">
+                <div class="text-h4 color-bg-brand-1 u-display-inline-block p-x2 p-y1 color-neutral-1 m-r2">6
+                </div> <label class="text-h4">Welke data kan helpen om deze vraag te beantwoorden?</label>
+            </div>
+            <input type="date" class="text-body form-item-date p-x3 p-y1">
+        </div>
+    </form>
+</div>
+{% comment %}
+{% include form.html schemaUrl="/schema/activiteit.schema.json" %}
+{% endcomment %}
+<script>
+    var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
+    var id = new URLSearchParams(window.location.search).get('id');
+    fetch(activiteitenApiUrl)
+        .then(response => response.json())
+        .then(data => { return data._embedded.activiteiten; })
+        .then(activiteiten => {
+            var activiteit = activiteiten.find(activiteit => activiteit.id == id);
+            document.querySelectorAll("[data-attribute='title']").forEach(attr => attr.innerHTML = activiteit.naam);
+            document.querySelectorAll("[data-attribute='onderdeel']").forEach(attr => attr.innerHTML = activiteit.onderdeel);
+            document.querySelectorAll("[data-attribute='contact']").forEach(attr => attr.innerHTML = activiteit.contact.naam);
+        });
+</script>
