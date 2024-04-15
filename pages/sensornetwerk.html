@@ -5,11 +5,43 @@ description: Details van het sensornetwerk.
 permalink: /sensornetwerk
 navGroup: /sensoren
 ---
-<div class="table-block p-b6">
-    <div class="p-4 p-y7 color-bg-neutral-1">
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ "/sensornetwerken" | relative_url }}" class="text-body color-brand-3">Sensornetwerken</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="#" class="text-body color-brand-3"><span data-attribute="onderdeel"></span></a>
+        </div>
+        <h1 class="text-h1 m-y3"><span data-attribute="title">Sensornetwerk X</span></h1>
+    </div>
+    <div class="prop-block p-b6">
+        <div class="w-md-75">
+            <div class="prop p-5 color-bg-neutral-2">
+                <div class="u-flex u-space-between u-direction-column u-md-direction-row">
+                    <div class="u-flex u-direction-column">
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Contact</div>
+                            <div class="u-flex-1 text-body">Johan G.</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Email</div>
+                            <div class="u-flex-1 text-body">johan@brabant.nl</div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <a href="#" class="btn text-body">Bewerken</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-block p-b6">
         <h2 class="text-h2 m-b2">{{ page.title }} <span id="title"></span></h2>
         <p class="text-body m-b4">{{ page.description }}</p>
         <table class="table table-wide" id="sensoren"></table>
+        <div class="p-t4">
+            <a href="#" class="btn btn-small text-body u-display-inline-block">+ Nieuwe toevoegen</a>
+        </div>
     </div>
 </div>
 <script>
