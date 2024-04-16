@@ -110,6 +110,27 @@ input[type=text] {
     display: none;
 }
 
+.cat-dropdown-block.cat-dropdown-block-collapsed .cat-dropdown-block-prop {
+    display: none;
+}
+
+.cat-toggle-plus {
+    width: 24px;
+}
+
+.cat-toggle-minus {
+    display: none;
+    width: 24px;
+}
+
+.cat-dropdown-block.cat-dropdown-block-collapsed .cat-toggle-minus {
+    display: inline-block;
+}
+
+.cat-dropdown-block.cat-dropdown-block-collapsed .cat-toggle-plus {
+    display: none;
+}
+
 .color-brand-1 {
     color: var(--color-brand-1);
 }
@@ -1300,6 +1321,10 @@ input[type=text] {
 .placeholder .placeholder-title {
     margin: auto;
     font-family: monospace;
+}
+
+.prop-column {
+    min-width: 50%;
 }
 
 .table {
