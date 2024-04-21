@@ -111,15 +111,10 @@ navGroup: /activiteiten
 {% include form.html schemaUrl="/schema/activiteit.schema.json" %}
 {% endcomment %}
 <script>
-    var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
     var id = new URLSearchParams(window.location.search).get('id');
-    fetch(activiteitenApiUrl)
-        .then(response => response.json())
-        .then(data => { return data._embedded.activiteiten; })
-        .then(activiteiten => {
-            var activiteit = activiteiten.find(activiteit => activiteit.id == id);
-            document.querySelectorAll("[data-attribute='title']").forEach(attr => attr.innerHTML = activiteit.naam);
-            document.querySelectorAll("[data-attribute='onderdeel']").forEach(attr => attr.innerHTML = activiteit.onderdeel);
-            document.querySelectorAll("[data-attribute='contact']").forEach(attr => attr.innerHTML = activiteit.contact.naam);
-        });
+    var db = JSON.parse(localStorage.getItem('db'));
+    var activiteit = db.activiteiten.find(activiteit => activiteit.id == id);
+    document.querySelectorAll("[data-attribute='title']").forEach(attr => attr.innerHTML = activiteit.naam);
+    document.querySelectorAll("[data-attribute='onderdeel']").forEach(attr => attr.innerHTML = activiteit.onderdeel);
+    document.querySelectorAll("[data-attribute='contact']").forEach(attr => attr.innerHTML = activiteit.contact.naam);
 </script>

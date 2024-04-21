@@ -12,47 +12,67 @@ permalink: /activiteiten
         <div class="u-overflow-x-auto">
             <table class="table table-wide" id="activiteiten"></table>
             <div class="p-t4">
-                <a href="#" class="btn btn-small text-body u-display-inline-block">+ Activiteit toevoegen</a>
+                <a href="{{ "/activiteit-toevoegen" | relative_url }}" class="btn btn-small text-body u-display-inline-block">+ Activiteit toevoegen</a>
             </div>
         </div>
     </div>
 </div>
 <script>
-    var activiteitenApiUrl = {{ "/api/activiteiten.json" | absolute_url | jsonify }};
-    fetch(activiteitenApiUrl)
-        .then(response => response.json())
-        .then(data => { return data._embedded.activiteiten; })
-        .then(activiteiten => {
-            var html = `
-                <tr>
-                    <th class="table-th text-h4">Activiteit</th>
-                    <th class="table-th text-h4">Programma</th>
-                    <th class="table-th text-h4">Contactpersoon</th>
-                    <th class="table-th text-h4">Email</th>
-                    <th class="table-th text-h4">Status</th>
-                </tr>
-            `;
-            htmls = activiteiten.map(activiteit => {
-                return `
-                    <tr class="table-tr">
-                        <td class="table-td text-body">
-                            <a href="{{ "/activiteit" | relative_url }}?id=${activiteit.id}">${activiteit.naam}</a>
-                        </td>
-                        <td class="table-td text-body">
-                            ${activiteit.onderdeel}
-                        </td>
-                        <td class="table-td text-body">
-                            ${activiteit.contact.naam}
-                        </td>
-                        <td class="table-td text-body">
-                            <a href="mailto:${activiteit.contact.email}" class="table-td-link">${activiteit.contact.email}</a>
-                        </td>
-                        <td class="table-td text-body">
-                            ${activiteit.status}
-                        </td>
-                    </tr>
-                `;
-            });
-            document.getElementById("activiteiten").innerHTML = html + htmls.join('');
-        });
+    var db = JSON.parse(localStorage.getItem('db')) || {
+        activiteiten: [
+            {
+                "_links": {
+                    "self": { "href": "https://example.org/example.json" },
+                    "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
+                },
+                "id": 1,
+                "organisatie": "Provincie Noord-Brabant",
+                "onderdeel": "Programma Ondermijning",
+                "type": "Project",
+                "naam": "Onderzoek Bedrijfsterreinen",
+                "beschrijving": "",
+                "contact": {
+                    "naam": "J. Groenen",
+                    "email": "jgroenen@pnb.nl",
+                    "telefoon": "06-12345678"
+                },
+                "wettelijke grondslag": "Wet Bibob",
+                "startdatum": "2020-01-01",
+                "einddatum": "2021-01-01",
+                "status": "Actief"
+            }
+        ]
+    };
+    localStorage.setItem('db', JSON.stringify(db));
+    var html = `
+        <tr>
+            <th class="table-th text-h4">Activiteit</th>
+            <th class="table-th text-h4">Programma</th>
+            <th class="table-th text-h4">Contactpersoon</th>
+            <th class="table-th text-h4">Email</th>
+            <th class="table-th text-h4">Status</th>
+        </tr>
+    `;
+    htmls = db.activiteiten.map(activiteit => {
+        return `
+            <tr class="table-tr">
+                <td class="table-td text-body">
+                    <a href="{{ "/activiteit" | relative_url }}?id=${activiteit.id}">${activiteit.naam}</a>
+                </td>
+                <td class="table-td text-body">
+                    ${activiteit.onderdeel}
+                </td>
+                <td class="table-td text-body">
+                    ${activiteit.contact.naam}
+                </td>
+                <td class="table-td text-body">
+                    <a href="mailto:${activiteit.contact.email}" class="table-td-link">${activiteit.contact.email}</a>
+                </td>
+                <td class="table-td text-body">
+                    ${activiteit.status}
+                </td>
+            </tr>
+        `;
+    });
+    document.getElementById("activiteiten").innerHTML = html + htmls.join('');
 </script>
