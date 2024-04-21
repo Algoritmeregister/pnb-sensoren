@@ -1,51 +1,51 @@
 ---
 layout: default
 nav_position: 3
-title: Sensornetwerken
-description: Overzicht van sensornetwerken.
-permalink: /sensornetwerken
+title: Sensorgroepen
+description: Overzicht van sensorgroepen.
+permalink: /sensorgroepen
 ---
 <div class="table-block p-b6">
     <div class="p-4 p-y7 color-bg-neutral-1">
-        <h2 class="text-h2 m-b2">Sensornetwerken</h2>
+        <h2 class="text-h2 m-b2">Sensorgroepen</h2>
         <p class="text-body m-b4">{{ page.description }}</p>
         <div class="u-overflow-x-auto">
-            <table class="table table-wide" id="sensornetwerken"></table>
+            <table class="table table-wide" id="sensorgroepen"></table>
         </div>
     </div>
 </div>
 <script>
-    var sensornetwerkenApiUrl = {{ "/api/sensornetwerken.json" | absolute_url | jsonify }};
-    fetch(sensornetwerkenApiUrl)
+    var sensorgroepenApiUrl = {{ "/api/sensorgroepen.json" | absolute_url | jsonify }};
+    fetch(sensorgroepenApiUrl)
         .then(response => response.json())
-        .then(data => { return data._embedded.sensornetwerken; })
-        .then(sensornetwerken => {
+        .then(data => { return data._embedded.sensorgroepen; })
+        .then(sensorgroepen => {
             var html = `
                 <tr>
-                    <th class="table-th text-h4">Sensornetwerk</th>
+                    <th class="table-th text-h4">Sensorgroep</th>
                     <th class="table-th text-h4">Contactpersoon</th>
                     <th class="table-th text-h4">Email</th>
                     <th class="table-th text-h4">Status</th>
                 </tr>
             `;
-            htmls = sensornetwerken.map(sensornetwerk => {
+            htmls = sensorgroepen.map(sensorgroep => {
                 return `
                     <tr class="table-tr">
                         <td class="table-td text-body">
-                            <a href="{{ "/sensornetwerk" | relative_url }}?id=${sensornetwerk.id}">${sensornetwerk.naam}</a>
+                            <a href="{{ "/sensorgroep" | relative_url }}?id=${sensorgroep.id}">${sensorgroep.naam}</a>
                         </td>
                         <td class="table-td text-body">
-                            ${sensornetwerk.contact.naam}
+                            ${sensorgroep.contact.naam}
                         </td>
                         <td class="table-td text-body">
-                            <a href="mailto:${sensornetwerk.contact.email}" class="table-td-link">${sensornetwerk.contact.email}</a>
+                            <a href="mailto:${sensorgroep.contact.email}" class="table-td-link">${sensorgroep.contact.email}</a>
                         </td>
                         <td class="table-td text-body">
-                            ${sensornetwerk.status}
+                            ${sensorgroep.status}
                         </td>
                     </tr>
                 `;
             });
-            document.getElementById("sensornetwerken").innerHTML = html + htmls.join('');
+            document.getElementById("sensorgroepen").innerHTML = html + htmls.join('');
         });
 </script>

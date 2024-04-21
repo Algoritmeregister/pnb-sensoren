@@ -5,11 +5,12 @@ description: Details van de algoritmische toepassingen.
 permalink: /algoritme
 navGroup: /algoritmes
 ---
-<div class="table-block p-b6">
-    <div class="p-4 p-y7 color-bg-neutral-1">
-        <h2 class="text-h2 m-b2">{{ page.title }} <span id="title"></span></h2>
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <h1 class="text-h1 m-y3">{{ page.title }} <span id="title"></span></h1>
         <p class="text-body m-b4">{{ page.description }}</p>
     </div>
+    {% include contractDetails.html %}
 </div>
 <script>
     var algoritmesApiUrl = {{ "/api/algoritmes.json" | absolute_url | jsonify }};

@@ -1,0 +1,18 @@
+---
+layout: default
+title: Contractdetails
+description: Details van het contract.
+permalink: /contract
+navGroup: /contracten
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ "/contracten" | relative_url }}" class="text-body color-brand-3">Contracten</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="#" class="text-body color-brand-3"><span data-attribute="onderdeel"></span></a>
+        </div>
+        <h1 class="text-h1 m-y3"><span data-attribute="title">Contract Beheer van Tellussen</span></h1>
+    </div>
+    {% include contractDetails.html %}
+</div>

@@ -1,12 +1,12 @@
 ---
-permalink: "/api/sensornetwerken.json"
+permalink: "/api/sensorgroepen.json"
 ---
 {
     "_links": {
         "self": { "href": {{ page.permalink | absolute_url | jsonify }} }
     },
     "_embedded": {
-        "sensornetwerken": [
+        "sensorgroepen": [
             {
                 "_links": {
                     "self": { "href": "https://example.org/example.json" },
@@ -29,8 +29,8 @@ permalink: "/api/sensornetwerken.json"
                                 "collection": { "href": {{ page.permalink | absolute_url | jsonify }} }
                             },
                             "id": 1,
-                            "naam": "Tellus 1",
-                            "beschrijving": "Tellus in de Provinciale Weg",
+                            "naam": "Tellus Burg. de Joss. de Jongln.",
+                            "beschrijving": "Tellus ter hoogte van het pompstation",
                             "contact": {
                                 "naam": "J. Groenen",
                                 "email": "jgroenen@pnb.nl",

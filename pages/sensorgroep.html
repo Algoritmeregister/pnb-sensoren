@@ -1,18 +1,13 @@
 ---
 layout: default
-title: Sensornetwerk
-description: Details van het sensornetwerk.
-permalink: /sensornetwerk
-navGroup: /sensoren
+title: Sensorgroep
+description: Details van de sensorgroep.
+permalink: /sensorgroep
+navGroup: /sensorgroepen
 ---
 <div class="p-4 color-bg-neutral-1">
     <div class="crumble-block p-y4">
-        <div class="u-flex u-align-center">
-            <a href="{{ "/sensornetwerken" | relative_url }}" class="text-body color-brand-3">Sensornetwerken</a>
-            <span class="text-body color-brand-3 m-x1">&gt;</span>
-            <a href="#" class="text-body color-brand-3"><span data-attribute="onderdeel"></span></a>
-        </div>
-        <h1 class="text-h1 m-y3"><span data-attribute="title">Sensornetwerk X</span></h1>
+        <h1 class="text-h1 m-y3"><span data-attribute="title">Sensorgroep Tellussen</span></h1>
     </div>
     <div class="prop-block p-b6">
         <div class="w-md-75">
@@ -40,19 +35,19 @@ navGroup: /sensoren
         <p class="text-body m-b4">{{ page.description }}</p>
         <table class="table table-wide" id="sensoren"></table>
         <div class="p-t4">
-            <a href="#" class="btn btn-small text-body u-display-inline-block">+ Nieuwe toevoegen</a>
+            <a href="#" class="btn btn-small text-body u-display-inline-block">+ Nieuwe sensor aan groep toevoegen</a>
         </div>
     </div>
 </div>
 <script>
-    var sensornetwerkenApiUrl = {{ "/api/sensornetwerken.json" | absolute_url | jsonify }};
+    var sensorgroepenApiUrl = {{ "/api/sensorgroepen.json" | absolute_url | jsonify }};
     var id = new URLSearchParams(window.location.search).get('id');
-    fetch(sensornetwerkenApiUrl)
+    fetch(sensorgroepenApiUrl)
         .then(response => response.json())
-        .then(data => { return data._embedded.sensornetwerken; })
-        .then(sensornetwerken => {
-            var sensornetwerk = sensornetwerken.find(sensornetwerk => sensornetwerk.id == id);
-            document.getElementById("title").innerHTML = sensornetwerk.naam;
+        .then(data => { return data._embedded.sensorgroepen; })
+        .then(sensorgroepen => {
+            var sensorgroep = sensorgroepen.find(sensorgroep => sensorgroep.id == id);
+            document.getElementById("title").innerHTML = sensorgroep.naam;
             var html = `
                 <tr>
                     <th class="table-th text-h4">Sensor</th>
@@ -61,11 +56,11 @@ navGroup: /sensoren
                     <th class="table-th text-h4">Status</th>
                 </tr>
             `;
-            htmls = sensornetwerk._embedded.sensoren.map(sensor => {
+            htmls = sensorgroep._embedded.sensoren.map(sensor => {
                 return `
                     <tr class="table-tr">
                         <td class="table-td text-body">
-                            ${sensor.naam}
+                            <a href="{{ "/sensor" | relative_url }}?id=${sensor.id}">${sensor.naam}</a>
                         </td>
                         <td class="table-td text-body">
                             ${sensor.contact.naam}

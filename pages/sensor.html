@@ -1,0 +1,18 @@
+---
+layout: default
+title: Sensor
+description: Details van de sensor.
+permalink: /sensor
+navGroup: /sensorgroepen
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ "/sensorgroepen" | relative_url }}" class="text-body color-brand-3">Sensorgroepen</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="{{ "/sensorgroep?id=1" | relative_url }}" class="text-body color-brand-3">Sensorgroep Tellussen</a>
+        </div>
+        <h1 class="text-h1 m-y3"><span data-attribute="title">Sensor Tellus Burg. de Joss. de Jongln.</span></h1>
+    </div>
+    {% include sensorDetails.html %}
+</div>
