@@ -1,53 +1,87 @@
 
-<form class="form-block p-b7" data-schema="https://www.algoritmeregister.org/schemas/sensoren/pnb/organisatorische-activiteit.schema.json">
+<form class="form-block p-b7" data-schema="https://www.algoritmeregister.org/schemas/sensoren/pnb/sensorinzet.schema.json">
     <input name="id" type="hidden">
 
     <div class="form-item p-4 color-bg-neutral-2">
         <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">1</div>
+            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
             <label class="form-item-nr-label text-h4">Naam</label>
         </div>
         <div class="p-l6">
-            <p class="text-body m-b4">De naam voor de inzet van sensoren.</p>
+            <p class="text-body m-b4">Naam voor deze registratie.</p>
             <input name="name" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
         </div>
     </div>
 
     <div class="form-item p-4 color-bg-neutral-2">
         <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">3</div>
-            <label class="form-item-nr-label text-h4">Beschrijving</label>
+            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
+            <label class="form-item-nr-label text-h4">Doel</label>
         </div>
         <div class="p-l6">
-            <p class="text-body m-b4">Een beschrijving van de organisatorische activiteit.</p>
-            <textarea name="beschrijving" placeholder="" class="text-body form-item-textarea p-3"></textarea>
+            <p class="text-body m-b4">Doel van de inzet van sensoren.</p>
+            <textarea name="doel" placeholder="" class="text-body form-item-textarea p-3"></textarea>
+        </div>
+    </div>
+
+    <div class="form-item p-4 color-bg-neutral-2">
+        <div class="m-b4 u-position-relative">
+            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
+            <label class="form-item-nr-label text-h4">Thema</label>
+        </div>
+        <div class="p-l6">
+            <div>
+                <p class="text-body m-b4">Thema-omschrijving voor de inzet van sensoren.</p>
+                <select name="thema" class="text-body p-y1 p-x2 form-item-select">
+                    <option class="text-body">verkeersveiligheid</option>
+                    <option class="text-body">milieu</option>
+                    <option class="text-body">auto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-item p-4 color-bg-neutral-2">
+        <div class="m-b4 u-position-relative">
+            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
+            <label class="form-item-nr-label text-h4">Geldig tot</label>
+        </div>
+        <div class="p-l6">
+            <p class="text-body m-b4">Deze registratie is geldig tot deze datum (YYYY-MM-DD).</p>
+            <input name="geldig tot" type="date" class="text-body form-item-date p-x3 p-y1">
         </div>
     </div>
 
     <div class="form-item p-4 color-bg-neutral-2">
         <div class="m-b4 u-position-relative">
             <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">4</div>
-            <label class="form-item-nr-label text-h4">Grondslag</label>
+            <label class="form-item-nr-label text-h4">Wettelijke Grondslag</label>
         </div>
         <div class="p-l6">
-            <p class="text-body m-b4">De grondslag van de organisatorische activiteit.</p>
-            <textarea name="grondslag" placeholder="" class="text-body form-item-textarea p-3"></textarea>
+            <p class="text-body m-b4">Wettelijke grondslag voor de inzet van de sensor.</p>
+            <textarea name="wettelijke grondslag" placeholder="" class="text-body form-item-textarea p-3"></textarea>
         </div>
     </div>
 
     <div class="form-item p-4 color-bg-neutral-2">
         <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">9</div>
-            <label class="form-item-nr-label text-h4">Status</label>
+            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
+            <label class="form-item-nr-label text-h4">Niet tonen na</label>
         </div>
         <div class="p-l6">
-            <div>
-                <p class="text-body m-b4">De status van de inzet sensoren.</p>
-                <select name="status" class="text-body p-y1 p-x2 form-item-select">
-                    <option class="text-body">actief</option>
-                    <option class="text-body">inactief</option>
-                </select>
-            </div>
+            <p class="text-body m-b4">Datum waarna de registratie niet meer getoond mag worden (YYYY-MM-DD).</p>
+            <input name="niet tonen na" type="date" class="text-body form-item-date p-x3 p-y1">
+        </div>
+    </div>
+
+    <div class="form-item p-4 color-bg-neutral-2">
+        <div class="m-b4 u-position-relative">
+            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
+            <label class="form-item-nr-label text-h4">Bewaartermijn</label>
+        </div>
+        <div class="p-l6">
+            <p class="text-body m-b4">Bewaartermijn van de registratie in maanden.</p>
+            <input name="bewaartermijn" type="number" class="text-body form-item-date p-x3 p-y1">
         </div>
     </div>
 
