@@ -1,0 +1,53 @@
+<div data-schema="https://www.algoritmeregister.org/schemas/sensoren/pnb/contract.schema.json">
+    
+    <div class="form-item p-4 color-bg-neutral-2">
+        <h2 class="text-h2 m-b2">Contractdetails {{ include.title }}</h2>
+    </div>
+
+    {% assign property = include.prefix | append: "number" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Contractnummer of referentie"
+        description="Contractnummer of referentie"
+    %}
+
+    {% assign property = include.prefix | append: "date" %}
+    {% include formsections/dateinput.html
+        property=property
+        name="Contractdatum"
+        description="Contractdatum"
+    %}
+
+    {% assign property = include.prefix | append: "endDate" %}
+    {% include formsections/dateinput.html
+        property=property
+        name="Einddatum contractperiode"
+        description="Einddatum contractperiode"
+    %}
+
+    {% assign property = include.prefix | append: "manager" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Contractmanager"
+        description="Contractmanager"
+    %}
+
+    {% assign property = include.prefix | append: "details" %}
+    {% include formsections/textarea.html
+        property=property
+        name="Bijzonderheden"
+        description="Bijzonderheden"
+    %}
+
+    {% assign property = include.prefix | append: "organization" %}
+    {% include formsections/textarea.html
+        property=property
+        name="Organisatie"
+        description="Organisatie"
+    %}
+
+    {% assign title = "Contactpersoon " | append: include.title %}
+    {% assign prefix = include.prefix | append: "contactpersoon." %}
+    {% include formsections/contactpersoon.html title=title prefix=prefix %}
+    
+</div>

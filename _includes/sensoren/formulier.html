@@ -96,9 +96,9 @@
         <h1 class="text-h1 m-b2">Juridische gegevens</h1>
     </div>
 
-    {% include formsections/contract.html prefix="leverancier" %}
+    {% include formsections/contract.html title="Leverancier" prefix="leverancier." %}
 
-    {% include formsections/contract.html prefix="beheer" %}
+    {% include formsections/contract.html title="Beheer" prefix="beheer." %}
 
     <div class="form-item p-4 color-bg-neutral-2">
         <a href="{{ include.opslaan | relative_url | default: "#" }}" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
