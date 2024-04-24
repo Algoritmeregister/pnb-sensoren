@@ -1,0 +1,49 @@
+<div data-schema="https://www.algoritmeregister.org/schemas/sensoren/pnb/contactpersoon.schema.json">
+    
+    <div class="form-item p-4 color-bg-neutral-2">
+        <h2 class="text-h2 m-b2">{{ include.title | default: "Contactpersoon" }}</h2>
+    </div>
+
+    {% assign property = include.prefix | append: "name" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Naam"
+        description="De naam van de contactpersoon."
+    %}
+
+    {% assign property = include.prefix | append: "organization" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Organisatie"
+        description="De organisatie waar de contactpersoon werkzaam is."
+    %}
+
+    {% assign property = include.prefix | append: "organizationalUnit" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Afdeling"
+        description="De afdeling waar de contactpersoon werkzaam is."
+    %}
+
+    {% assign property = include.prefix | append: "function" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Functie"
+        description="De functie van de contactpersoon."
+    %}
+
+    {% assign property = include.prefix | append: "phone" %}
+    {% include formsections/textinput.html
+        property=property
+        name="Telefoonnummer"
+        description="Het telefoonnummer van de contactpersoon."
+    %}
+
+    {% assign property = include.prefix | append: "email" %}
+    {% include formsections/textinput.html
+        property=property
+        name="E-mail"
+        description="Het e-mailadres van de contactpersoon."
+    %}
+
+</div>

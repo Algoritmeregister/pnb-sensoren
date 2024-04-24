@@ -1,7 +1,6 @@
 ---
 layout: default
-title: Sensor details bewerken voor
-description:
+title: "Camera #1 bewerken"
 permalink: /sensoren/bewerken
 navGroup: /sensoren/
 ---
@@ -14,9 +13,9 @@ navGroup: /sensoren/
             <span class="text-body color-brand-3 m-x1">&gt;</span>
             <a href="{{ "/sensoren/details" | relative_url }}" class="text-body color-brand-3">Camera #1</a>
         </div>
-        <h3 class="text-h3 m-y3">{{ page.title }}</h3>
+        <h3 class="text-h3 m-y3">Sensor details bewerken voor</h3>
         <h1 class="text-h1 m-y3">Camera #1</h1>
         <p class="text-body m-b4">Tankstation Churchillaan</p>
     </div>
-    {% include activiteiten/formulier.html opslaan="/sensoren/details" annuleren="/sensoren/details" %}
+    {% include sensoren/formulier.html opslaan="/sensoren/details" annuleren="/sensoren/details" %}
 </div>

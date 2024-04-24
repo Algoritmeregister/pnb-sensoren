@@ -3,87 +3,107 @@
     <input name="id" type="hidden">
 
     <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Naam</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Naam voor deze registratie.</p>
-            <input name="name" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
+        <h2 class="text-h2 m-b2">Algemeen</h2>
     </div>
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Doel</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Doel van de inzet van sensoren.</p>
-            <textarea name="doel" placeholder="" class="text-body form-item-textarea p-3"></textarea>
-        </div>
-    </div>
+    {% include formsections/textinput.html
+        property="name"
+        name="Naam"
+        description="Naam voor deze registratie."
+    %}
+
+    {% include formsections/textarea.html
+        property="doel"
+        name="Doel"
+        description="Doel van de inzet van sensoren."
+    %}
+
+    {% include formsections/selectoptions.html
+        property="thema"
+        name="Thema"
+        description="Thema-omschrijving voor de inzet van sensoren."
+        options="verkeersveiligheid, milieu, auto"
+    %}
+        
+    {% include formsections/dateinput.html
+        property="geldig tot"
+        name="Geldig tot"
+        description="Deze registratie is geldig tot deze datum (YYYY-MM-DD)."
+    %}
+
+    {% include formsections/textinput.html
+        property="wettelijke grondslag"
+        name="Wettelijke grondslag"
+        description="Wettelijke grondslag voor de inzet van de sensor."
+    %}
+        
+    {% include formsections/dateinput.html
+        property="niet tonen na"
+        name="Niet tonen na"
+        description="Datum waarna de registratie niet meer getoond mag worden (YYYY-MM-DD)."
+    %}
+
+    {% include formsections/textinput.html
+        property="bewaartermijn"
+        name="Bewaartermijn"
+        description="Bewaartermijn van de registratie in maanden."
+    %}
 
     <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Thema</label>
-        </div>
-        <div class="p-l6">
-            <div>
-                <p class="text-body m-b4">Thema-omschrijving voor de inzet van sensoren.</p>
-                <select name="thema" class="text-body p-y1 p-x2 form-item-select">
-                    <option class="text-body">verkeersveiligheid</option>
-                    <option class="text-body">milieu</option>
-                    <option class="text-body">auto</option>
-                </select>
-            </div>
-        </div>
+        <h2 class="text-h2 m-b2">Randvoorwaarden Maatschappelijke Meerwaarde</h2>
     </div>
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Geldig tot</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Deze registratie is geldig tot deze datum (YYYY-MM-DD).</p>
-            <input name="geldig tot" type="date" class="text-body form-item-date p-x3 p-y1">
-        </div>
-    </div>
+    {% include formsections/textarea.html
+        property="menselijke-maat"
+        name="Menselijke maat"
+        description="Is de menselijke maat geborgd?"
+    %}
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">4</div>
-            <label class="form-item-nr-label text-h4">Wettelijke Grondslag</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Wettelijke grondslag voor de inzet van de sensor.</p>
-            <textarea name="wettelijke grondslag" placeholder="" class="text-body form-item-textarea p-3"></textarea>
-        </div>
-    </div>
+    {% include formsections/textarea.html
+        property="correct-hergebruik"
+        name="Correct (her)gebruik"
+        description="Wordt de sensordata correct (her)gebruikt?"
+    %}
+    
+    {% include formsections/textinput.html
+        property="locatie-sensordata"
+        name="Locatie sensordata"
+        description="Link naar de locatie van de sensordata."
+    %}
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Niet tonen na</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Datum waarna de registratie niet meer getoond mag worden (YYYY-MM-DD).</p>
-            <input name="niet tonen na" type="date" class="text-body form-item-date p-x3 p-y1">
-        </div>
-    </div>
+    {% include formsections/textarea.html
+        property="bewuste-en-gerichte-inzet"
+        name="Bewuste en gerichte inzet"
+        description="Worden de sensoren bewust en gericht ingezet?"
+    %}
+        
+    {% include formsections/textarea.html
+        property="grondslag-of-beleidskader"
+        name="Grondslag of beleidskader"
+        description="Link naar wettelijke grondslag en/of beleidskader indien van toepassing."
+    %}
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Bewaartermijn</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Bewaartermijn van de registratie in maanden.</p>
-            <input name="bewaartermijn" type="number" class="text-body form-item-date p-x3 p-y1">
-        </div>
-    </div>
+    {% include formsections/textarea.html
+        property="geregistreerd-en-geinformeerd"
+        name="Geregistreerd en burgers geïnformeerd"
+        description="Worden de sensoren geregistreerd en burgers geïnformeerd?"
+    %}
+
+    {% include formsections/textarea.html
+        property="veilige-verwerking"
+        name="Veilige verwerking"
+        description="Wordt de sensordata veilig verwerkt en opgeslagen?"
+    %}
+    
+    {% include formsections/textinput.html
+        property="dpia"
+        name="DPIA"
+        description="Link naar de DPIA indien van toepassing."
+    %}
+
+    {% include formsections/contactpersoon.html title="Opdrachtgever" prefix="opdrachtgever" %}
+
+    {% include formsections/contactpersoon.html title="Gebruiker" prefix="gebruiker" %}
 
     <div class="form-item p-4 color-bg-neutral-2">
         <a href="{{ include.opslaan | relative_url | default: "#" }}" class="btn u-display-inline-block text-body m-r4">Opslaan</a>

@@ -105,75 +105,7 @@
         </div>
     </div>
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <h2 class="text-h2 m-b2">Contactpersoon</h2>
-    </div>
-
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Naam</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">De naam van de contactpersoon.</p>
-            <input name="contactpersoon.name" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
-
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Organisatie</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">De organisatie waar de contactpersoon werkzaam is.</p>
-            <input name="contactpersoon.organization" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
-
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Afdeling</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">De afdeling waar de contactpersoon werkzaam is.</p>
-            <input name="contactpersoon.organizationalUnit" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
-
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Functie</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">De functie van de contactpersoon.</p>
-            <input name="contactpersoon.function" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
-
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Telefoonnummer</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Het telefoonnummer van de contactpersoon.</p>
-            <input name="contactpersoon.phone" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
-
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">E-mail</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Het e-mailadres van de contactpersoon.</p>
-            <input name="contactpersoon.email" type="email" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
+    {% include formsections/contactpersoon.html %}
 
     <div class="form-item p-4 color-bg-neutral-2">
         <a href="{{ include.opslaan | relative_url | default: "#" }}" class="btn u-display-inline-block text-body m-r4">Opslaan</a>

@@ -2,16 +2,19 @@
 <form class="form-block p-b7" data-schema="https://www.algoritmeregister.org/schemas/sensoren/pnb/sensorengroep.schema.json">
     <input name="id" type="hidden">
 
-    <div class="form-item p-4 color-bg-neutral-2">
-        <div class="m-b4 u-position-relative">
-            <div class="form-item-nr text-h4 color-bg-brand-1 u-position-absolute p-x2 p-y1 color-neutral-1">•</div>
-            <label class="form-item-nr-label text-h4">Naam</label>
-        </div>
-        <div class="p-l6">
-            <p class="text-body m-b4">Naam voor deze sensorengroep.</p>
-            <input name="name" type="text" class="text-body form-item-input p-x3 p-y1" placeholder="">
-        </div>
-    </div>
+    {% include formsections/textinput.html
+        property="name"
+        name="Naam"
+        description="De naam van deze sensorengroep."
+    %}
+
+    {% include formsections/textarea.html
+        property="beschrijving"
+        name="Beschrijving"
+        description="Een beschrijving van de sensorengroep."
+    %}
+
+    {% include formsections/contactpersoon.html prefix="contactpersoon." %}
 
     <div class="form-item p-4 color-bg-neutral-2">
         <a href="{{ include.opslaan | relative_url | default: "#" }}" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
