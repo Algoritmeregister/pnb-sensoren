@@ -176,7 +176,7 @@
     </div>
 
     <div class="form-item p-4 color-bg-neutral-2">
-        <a href="{{ include.opslaan | default: "#" }}" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
-        <a href="{{ include.annuleren | default: "#" }}" class="text-link u-display-inline-block">Annuleren</a>
+        <a href="{{ include.opslaan | relative_url | default: "#" }}" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
+        <a href="{{ include.annuleren | relative_url | default: "#" }}" class="text-link u-display-inline-block">Annuleren</a>
     </div>
 </form>

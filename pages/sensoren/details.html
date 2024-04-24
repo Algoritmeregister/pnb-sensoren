@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Camera #1"
-description: Tankstation Churchillaan
+description: "Pompstation naast N109 ter hoogte van Katenburgbrug"
 permalink: /sensoren/details
 navGroup: /sensoren/
 ---
@@ -16,24 +16,108 @@ navGroup: /sensoren/
         <h1 class="text-h1 m-y3">{{ page.title }}</h1>
         <p class="text-body m-b4">{{ page.description }}</p>
     </div>
-    <div class="prop-block p-b6">
-        <div class="w-75">
-            <div class="prop p-5 color-bg-neutral-2">
-                <div class="u-flex u-space-between">
-                    <div class="u-flex u-direction-column">
-                        <div class="u-flex m-b3">
-                            <div class="u-flex-1 text-h4">Contactpersoon</div>
-                            <div class="u-flex-1 text-body">
-                                Wim Dee<br>
-                                Projectmanager<br>
-                                Innovatielab, Provincie Noord-Brabant<br>
-                                +31612345678<br>
-                                <a href="#">wim.dee@brabant.nl</a>
-                            </div>
+    {% include contactpersoon.html bewerken="/sensoren/bewerken" %}
+    <div class="cat-dropdown-block p-y3">
+        <div class="cat-header color-bg-neutral-2 p-4 u-flex u-space-between">
+            <h3 class="text-h3">ALGEMEEN</h3>
+            <a href="#" class="cat-header-toggle">
+                <img src="{{ "/img/plus.svg" | relative_url }}" class="cat-toggle-plus">
+                <img src="{{ "/img/minus.svg" | relative_url }}" class="cat-toggle-minus">
+            </a>
+        </div>
+        <div class="m-y2 cat-dropdown-block-prop">
+            <div class="prop p-4">
+                <div class="u-flex u-space-between u-direction-column u-md-direction-row">
+                    <div class="prop-column u-flex u-direction-column">
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">ID</div>
+                            <div class="u-flex-1 text-body">550e8400-e29b-41d4-a716-446655440000</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Identificatie</div>
+                            <div class="u-flex-1 text-body">Motorola SensD 20199182A2</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Technische specificatie</div>
+                            <div class="u-flex-1 text-body">Link naar de technische specificatie van de sensor (bijv. brochure)</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Type</div>
+                            <div class="u-flex-1 text-body">nabijheid</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Firmware</div>
+                            <div class="u-flex-1 text-body">Android for Moto, v19.7-2018-23</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Update firmware noodzakelijk</div>
+                            <div class="u-flex-1 text-body">2025-01-12</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Onderhoud hardware</div>
+                            <div class="u-flex-1 text-body">2027-05-20</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Overige technische gegevens</div>
+                            <div class="u-flex-1 text-body">Reparatie mei 2019 i.v.m. aanrijding auto</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Aanvullende technische documentatie</div>
+                            <div class="u-flex-1 text-body"><a href="#">https://www.motorola.ai/sensD</a></div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Locatie</div>
+                            <div class="u-flex-1 text-body">(<a href="#">51.482655, 5.232169</a>) Pompstation naast N109 ter hoogte van Katenburgbrug</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Verwerkt persoonsgegevens</div>
+                            <div class="u-flex-1 text-body">Ja</div>
+                        </div>
+                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                            <div class="u-flex-1 text-h4">Mobiele sensor</div>
+                            <div class="u-flex-1 text-body">Nee</div>
                         </div>
                     </div>
-                    <div class="">
-                        <a href="{{ "/sensoren/bewerken" | relative_url }}" class="btn text-body">Bewerken</a>
+                    <div>
+                        <a href="#" class="btn text-body">Bewerken</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cat-dropdown-block p-y3">
+        <div class="cat-header color-bg-neutral-2 p-4 u-flex u-space-between">
+            <h3 class="text-h3">JURIDISCHE GEGEVENS</h3>
+            <a href="#" class="cat-header-toggle">
+                <img src="{{ "/img/plus.svg" | relative_url }}" class="cat-toggle-plus">
+                <img src="{{ "/img/minus.svg" | relative_url }}" class="cat-toggle-minus">
+            </a>
+        </div>
+        <div class="m-y2 cat-dropdown-block-prop">
+            <div class="prop cat-dropdown-block-collapsed">
+                <div class="prop p-4">
+                    <div class="u-flex u-space-between u-direction-column u-md-direction-row">
+                        <div class="prop-column u-flex u-direction-column">
+                            <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                                <div class="u-flex-1 text-h4">Leverancier</div>
+                                <div class="u-flex-1 text-body">[veel velden]</div>
+                            </div>
+                            <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                                <div class="u-flex-1 text-h4">Beheer</div>
+                                <div class="u-flex-1 text-body">[veel velden]</div>
+                            </div>
+                            <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                                <div class="u-flex-1 text-h4">Overige juridische gegevens</div>
+                                <div class="u-flex-1 text-body">Geen</div>
+                            </div>
+                            <div class="u-flex m-b3 u-direction-column u-md-direction-row">
+                                <div class="u-flex-1 text-h4">Aanvullende juridische documentatie</div>
+                                <div class="u-flex-1 text-body"><a href="#">https://uploads.pnb.nl/d8a928b2043db77e340b523547bf16cb4aa483f0645fe0a290ed1f20aab76257</a></div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="btn text-body">Bewerken</a>
+                        </div>
                     </div>
                 </div>
             </div>

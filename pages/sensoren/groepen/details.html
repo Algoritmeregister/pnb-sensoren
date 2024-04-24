@@ -14,27 +14,7 @@ navGroup: /sensoren/
         <h1 class="text-h1 m-y3">{{ page.title }}</h1>
         <p class="text-body m-b4">{{ page.description }}</p>
     </div>
-    <div class="prop-block p-b6">
-        <div class="w-md-75">
-            <div class="prop p-5 color-bg-neutral-2">
-                <div class="u-flex u-space-between u-direction-column u-md-direction-row">
-                    <div class="u-flex u-direction-column">
-                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
-                            <div class="u-flex-1 text-h4">Contact</div>
-                            <div class="u-flex-1 text-body">Johan G.</div>
-                        </div>
-                        <div class="u-flex m-b3 u-direction-column u-md-direction-row">
-                            <div class="u-flex-1 text-h4">Email</div>
-                            <div class="u-flex-1 text-body">johan@brabant.nl</div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <a href="#" class="btn text-body">Bewerken</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include contactpersoon.html bewerken="/sensoren/groepen/bewerken" %}
     <div class="table-block p-b6">
         <h2 class="text-h2 m-b2">Sensoren</h2>
         <table class="table table-wide" id="sensoren">

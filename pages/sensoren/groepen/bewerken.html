@@ -1,0 +1,20 @@
+---
+layout: default
+title: Sensorengroep details bewerken voor
+description:
+permalink: /sensoren/groepen/bewerken
+navGroup: /sensoren/
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ "/sensoren" | relative_url }}" class="text-body color-brand-3">Sensoren</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="{{ "/sensoren/groepen/details" | relative_url }}" class="text-body color-brand-3">Wegcameranetwerk Provinciale Wegen</a>
+        </div>
+        <h3 class="text-h3 m-y3">{{ page.title }}</h3>
+        <h1 class="text-h1 m-y3">Wegcameranetwerk Provinciale Wegen</h1>
+        <p class="text-body m-b4">Netwerk van camera's langs provinciale wegen.</p>
+    </div>
+    {% include sensoren/groepen/formulier.html opslaan="/sensoren/groepen/details" annuleren="/sensoren/groepen/details" %}
+</div>
