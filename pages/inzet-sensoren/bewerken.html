@@ -1,0 +1,23 @@
+---
+layout: default
+title: Blik op de Weg
+description: 
+permalink: /inzet-sensoren/bewerken
+navGroup: /activiteiten
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ "/activiteiten" | relative_url }}" class="text-body color-brand-3">Activiteiten</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <span class="text-body">Verkeer en mobiliteit</span>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="{{ "/activiteiten/details" | relative_url }}" class="text-body color-brand-3">Maximale Doorstroom</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="{{ "/inzet-sensoren/details" | relative_url }}" class="text-body color-brand-3">Blik op de Weg</a>
+        </div>
+        <h3 class="text-h3 m-y3">Inzet sensoren details bewerken voor</h3>
+        <h1 class="text-h1 m-y3">{{ page.title }}</h1>
+    </div>
+    {% include activiteiten/formulier.html opslaan="/inzet-sensoren/details" annuleren="/inzet-sensoren/details" %}
+</div>

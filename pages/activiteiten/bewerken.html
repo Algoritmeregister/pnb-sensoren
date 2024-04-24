@@ -1,0 +1,21 @@
+---
+layout: default
+title: Project details bewerken voor
+description:
+permalink: /activiteiten/bewerken
+navGroup: /activiteiten
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <div class="u-flex u-align-center">
+            <a href="{{ "/activiteiten" | relative_url }}" class="text-body color-brand-3">Activiteiten</a>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <span class="text-body">Verkeer en mobiliteit</span>
+            <span class="text-body color-brand-3 m-x1">&gt;</span>
+            <a href="{{ "/activiteiten/details" | relative_url }}" class="text-body color-brand-3">Maximale Doorstroom</a>
+        </div>
+        <h3 class="text-h3 m-y3">Project details bewerken voor</h3>
+        <h1 class="text-h1 m-y3">Maximale Doorstroom</h1>
+    </div>
+    {% include activiteiten/formulier.html opslaan="/activiteiten/details" annuleren="/activiteiten/details" %}
+</div>

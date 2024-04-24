@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
 
-{% include head.html %}
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ "/css/out-of-bounds.css" | relative_url }}">
+</head>
 
 <body class="color-bg-neutral-2">
     {% include header.html %}
@@ -10,6 +13,9 @@
             {{ content }}
         </div>
     </div>
+    {% include footer.html %}
+    <script src="{{ "/js/out-of-bounds.js" | relative_url }}"></script>
+    <script src="{{ "/js/main.js" | relative_url }}"></script>
 </body>
 
 </html>

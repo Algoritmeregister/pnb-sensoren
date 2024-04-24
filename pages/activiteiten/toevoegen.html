@@ -1,0 +1,13 @@
+---
+layout: default
+title: Activiteit toevoegen
+description:
+permalink: /activiteiten/toevoegen
+navGroup: /activiteiten
+---
+<div class="p-4 color-bg-neutral-1">
+    <div class="crumble-block p-y4">
+        <h2 class="text-h2 m-y3">{{ page.title }}</h2>
+    </div>
+    {% include activiteiten/formulier.html opslaan="/activiteiten/details" annuleren="/activiteiten" %}
+</div>

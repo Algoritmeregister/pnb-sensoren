@@ -5,8 +5,8 @@ description: Instellingen voor de applicatie
 permalink: /config
 navGroup: /
 ---
-<div class="p-4 p-y7 color-bg-neutral-1">
-    <form class="form-block p-b7" data-scope="configuratie">
+<div class="p-4 p-y7 color-bg-neutral-1" data-blocked="true">
+    <form class="form-block p-b7">
         <h2 class="text-h2 m-b4">Configuratie</h2>
         <div class="form-item p-4 color-bg-neutral-2">
             <div class="m-b3">
@@ -83,22 +83,8 @@ navGroup: /
             <input type="date" class="text-body form-item-date p-x3 p-y1">
         </div>
         <div class="form-item p-4 color-bg-neutral-2">
-            <a href="#" data-action="store" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
+            <a href="#" class="btn u-display-inline-block text-body m-r4">Opslaan</a>
             <a href="#" class="text-link u-display-inline-block">Annuleren</a>
         </div>
     </form>
 </div>
-<script>
-    var form = document.querySelector('[data-scope]');
-    var dataScope = form.getAttribute('data-scope'); // eg. 'configuratie'
-
-    var data = JSON.parse(localStorage.getItem(dataScope));
-    if (data) Object.keys(data).forEach(key => document.querySelector('[name="' + key + '"]').value = data[key]);
-    
-    document.querySelector('[data-action="store"]').addEventListener('click', function() {
-        var formData = new FormData(document.querySelector('[data-scope]'));
-        var data = {};
-        formData.forEach((value, key) => data[key] = value);
-        localStorage.setItem(dataScope, JSON.stringify(data));
-    });
-</script>

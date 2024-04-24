@@ -1,0 +1,17 @@
+---
+layout: default
+nav_position: 2
+title: Activiteiten
+description: Overzicht van organisatorische activiteiten (projecten en processen) waarin technologie wordt ingezet.
+permalink: /activiteiten
+---
+<div class="table-block p-b6">
+    <div class="p-4 p-y7 color-bg-neutral-1">
+        <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+        <p class="text-body m-b4">{{ page.description }}</p>
+        {% include activiteiten/overzicht.html %}
+        <div class="p-t4">
+            <a href="{{ "/activiteiten/toevoegen" | relative_url }}" class="btn btn-small text-body u-display-inline-block">+ Activiteit toevoegen</a>
+        </div>
+    </div>
+</div>
