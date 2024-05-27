@@ -1,0 +1,48 @@
+---
+layout: default
+nav_position: 5
+title: Termen
+description: Overzicht van termen die gebruikt worden.
+permalink: /termen/
+---
+<div class="table-block p-b6" data-blocked="true">
+    <div class="p-4 p-y7 color-bg-neutral-1">
+        <h2 class="text-h2 m-b2">{{ page.title }}</h2>
+        <p class="text-body m-b4">{{ page.description }}</p>
+        <div class="u-overflow-x-auto">
+            <table class="table table-wide" id="termen"></table>
+        </div>
+    </div>
+</div>
+<script>
+    var termenApiUrl = {{ "/api/termen.json" | absolute_url | jsonify }};
+    fetch(termenApiUrl)
+        .then(response => response.json())
+        .then(data => { return data._embedded.termen; })
+        .then(termen => {
+            var html = `
+                <tr>
+                    <th class="table-th text-h4">Term</th>
+                    <th class="table-th text-h4">Bescrhrijving</th>
+                    <th class="table-th text-h4">Bron</th>
+                </tr>
+            `;
+            htmls = termen.map(term => {
+                return `
+                    <tr class="table-tr">
+                        <td class="table-td text-body">
+                            <a name="${term.naam}"></a>
+                            ${term.naam}
+                        </td>
+                        <td class="table-td text-body">
+                            ${term.beschrijving}
+                        </td>
+                        <td class="table-td text-body">
+                            <a href="${term.bron}" target="_blank">${term.bron}</a>
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("termen").innerHTML = html + htmls.join('');
+        });
+</script>
